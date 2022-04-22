@@ -1,0 +1,27 @@
+{
+  "name": "api-marketplace",
+  "version": "1.0.0",
+  "description": "This is a marketplace whith only cellphones, the user can see, edit, include and delete someone ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarlosKohaute/API-MarketPlace.git"
+  },
+  "author": "Carlos Kohaute",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CarlosKohaute/API-MarketPlace/issues"
+  },
+  "homepage": "https://github.com/CarlosKohaute/API-MarketPlace#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
