@@ -1,0 +1,9 @@
+{"editor.codeActionsOnSave": {
+  "source.fixAll": true
+},
+"files.eol": "\n",
+"files.insertFinalNewline": true,
+"[javascript]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"}  
+}
+
