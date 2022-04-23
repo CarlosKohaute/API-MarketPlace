@@ -3,10 +3,12 @@ const port = 3000;
 const app = express();
 const cors = require('cors');
 const routes = require('./src/routes/cell.route');
+const connectToDatabase = require('./src/database/database');
+
+connectToDatabase();
 
 app.use(express.json());
 app.use(cors());
-const mongoose = require('mongoose');
 
 app.use('/cells', routes);
 

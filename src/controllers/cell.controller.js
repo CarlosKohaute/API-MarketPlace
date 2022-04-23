@@ -1,7 +1,8 @@
 const cellsService = require('../services/cell.service');
+const mongoose = require('mongoose');
 
-const findAllCellsController = (req, res) => {
-  const cells = cellsService.findAllCellsService();
+const findAllCellsController = async (req, res) => {
+  const cells = await cellsService.findAllCellsService();
 
   if (cells.length == 0) {
     return res.status(404).send({ message: 'Não existe celular cadastrado!' });
@@ -9,14 +10,13 @@ const findAllCellsController = (req, res) => {
   res.send(cells);
 };
 
-const findByIdCellController = (req, res) => {
-  const idParam = Number(req.params.id);
-
-  if (!idParam) {
+const findByIdCellController = async (req, res) => {
+  const idParam = req.params.id;
+  if (!mongoose.Types.ObjectId.isValid(idParam)) {
     return res.status(400).send({ message: 'ID inválido!' });
   }
 
-  const chosenCell = cellsService.findByIdCellservice(idParam);
+  const chosenCell = await cellsService.findByIdCellservice(idParam);
 
   if (!chosenCell) {
     return res.status(404).send({ message: 'Celular não encontrado!!' });
@@ -44,7 +44,7 @@ const createCellController = (req, res) => {
 };
 
 const updateCellController = (req, res) => {
-  const idParam = Number(req.params.id);
+  const idParam = req.params.id;
   if (!idParam) {
     return res.status(400).send({ message: 'ID inválido!' });
   }
@@ -68,7 +68,7 @@ const updateCellController = (req, res) => {
 };
 
 const deleteCellController = (req, res) => {
-  const idParam = Number (req.params.id);
+  const idParam = req.params.id;
   if (!idParam) {
     return res.status(400).send({ message: 'ID inválido!' });
   }

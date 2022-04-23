@@ -1,26 +1,12 @@
-const cells = [
-  {
-    id: 1,
-    name: 'Xiaomi 12 PRO',
-    photo: './assets/images/xiaomi12pro.png',
-    description:
-      'Versão global xiaomi 12 pro smartphone 8gb 256gb/12gb 256gb snapdragon 8 gen 1 núcleo octa 6.73 polegada display 120hz 4600mah 120w',
-    price: 4000,
-  },
-  {
-    id: 2,
-    name: 'Iphone 13 PRO',
-    photo: './assets/images/iphone13pro.png',
-    description: 'Apple iPhone 13 Pro 128GB Prateado Tela 6,1” - 12MP iOS ',
-    price: 7800,
-  },
-];
+const Cells = require('../models/Cell');
 
-const findAllCellsService = () => {
+const findAllCellsService = async () => {
+  const cells = await Cells.find();
   return cells;
 };
-const findByIdCellservice = (idParam) => {
-  return cells.find((cell) => cell.id == idParam);
+const findByIdCellservice = async (idParam) => {
+  const cell = await Cells.findById(idParam);
+  return cell;
 };
 
 const createCellservice = (newCell) => {
