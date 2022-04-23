@@ -6,6 +6,7 @@ const routes = require('./src/routes/cell.route');
 
 app.use(express.json());
 app.use(cors());
+const mongoose = require('mongoose');
 
 app.use('/cells', routes);
 
