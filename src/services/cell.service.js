@@ -9,23 +9,18 @@ const findByIdCellservice = async (idParam) => {
   return cell;
 };
 
-const createCellservice = (newCell) => {
-  const newId = cells.length + 1;
-  newCell.id = newId;
-  cells.push(newCell);
-  return newCell;
+const createCellservice = async  (newCell) => {
+  const cellCreated = await Cells.create(newCell)
+  return cellCreated;
 };
 
-const updateCellservice = (id, cellEdited) => {
-  cellEdited['id'] = id;
-  const cellIndex = cells.findIndex((cell) => cell.id == id);
-  cells[cellIndex] = cellEdited;
-  return cellEdited;
+const updateCellservice = async (id, cellEdited) => {
+  const cellUpdate = await Cells.findByIdAndUpdate(id, cellEdited)
+  return cellUpdate;
 };
 
-const deleteCellservice = (id) => {
-  const cellIndex = cells.findIndex((cell) => cell.id == id);
-  return cells.splice(cellIndex, 1);
+const deleteCellservice = async (id) => {
+  return await Cells.findByIdAndDelete(id)
 };
 module.exports = {
   findAllCellsService,

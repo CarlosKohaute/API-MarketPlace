@@ -25,27 +25,21 @@ const findByIdCellController = async (req, res) => {
   res.send(chosenCell);
 };
 
-const createCellController = (req, res) => {
+const createCellController = async (req, res) => {
   const cell = req.body;
 
-  if (
-    !cell ||
-    !cell.name ||
-    !cell.price ||
-    !cell.photo ||
-    !cell.description
-  ) {
+  if (!cell || !cell.name || !cell.price || !cell.photo || !cell.description) {
     return res
       .status(400)
       .send({ message: ' Envie todos os campos preenchidos!' });
   }
-  const newCell = cellsService.createCellservice(cell);
+  const newCell = await cellsService.createCellservice(cell);
   res.status(201).send(newCell);
 };
 
-const updateCellController = (req, res) => {
+const updateCellController = async (req, res) => {
   const idParam = req.params.id;
-  if (!idParam) {
+  if (!mongoose.Types.ObjectId.isValid(idParam)) {
     return res.status(400).send({ message: 'ID inválido!' });
   }
   const cellEdit = req.body;
@@ -60,19 +54,16 @@ const updateCellController = (req, res) => {
       .status(400)
       .send({ message: ' Envie todos os campos preenchidos!' });
   }
-  const updatedCell = cellsService.updateCellservice(
-    idParam,
-    cellEdit,
-  );
+  const updatedCell = await cellsService.updateCellservice(idParam, cellEdit);
   res.send(updatedCell);
 };
 
-const deleteCellController = (req, res) => {
+const deleteCellController =  async (req, res) => {
   const idParam = req.params.id;
-  if (!idParam) {
+  if (!mongoose.Types.ObjectId.isValid(idParam)) {
     return res.status(400).send({ message: 'ID inválido!' });
   }
- const  chosenCell = cellsService.deleteCellservice(idParam);
+await cellsService.deleteCellservice(idParam);
   res.send({ message: 'Celular deletado com sucesso!' });
 };
 module.exports = {
