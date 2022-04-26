@@ -2,9 +2,9 @@ const cellsService = require('../services/cell.service');
 const mongoose = require('mongoose');
 
 const findAllCellsController = async (req, res) => {
-  const cells = await cellsService.findAllCellsService();
+  const allcells = await cellsService.findAllCellsService();
 
-  if (cells.length == 0) {
+  if (allcells.length == 0) {
     return res.status(404).send({ message: 'Não existe celular cadastrado!' });
   }
   res.send(cells);

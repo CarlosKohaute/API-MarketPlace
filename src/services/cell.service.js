@@ -1,12 +1,12 @@
 const Cells = require('../models/Cell');
 
 const findAllCellsService = async () => {
-  const cells = await Cells.find();
-  return cells;
+  const allCells = await Cells.find();
+  return allCells;
 };
 const findByIdCellservice = async (idParam) => {
-  const cell = await Cells.findById(idParam);
-  return cell;
+  const oneCell = await Cells.findById(idParam);
+  return oneCell;
 };
 
 const createCellservice = async  (newCell) => {
@@ -14,8 +14,8 @@ const createCellservice = async  (newCell) => {
   return cellCreated;
 };
 
-const updateCellservice = async (id, cellEdited) => {
-  const cellUpdate = await Cells.findByIdAndUpdate(id, cellEdited)
+const updateCellservice = async (idParam, cellEdited) => {
+  const cellUpdate = await Cells.findByIdAndUpdate(idParam, cellEdited)
   return cellUpdate;
 };
 
