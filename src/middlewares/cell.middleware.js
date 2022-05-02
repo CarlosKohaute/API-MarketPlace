@@ -19,8 +19,20 @@ const validObjectBody = (req, res, next) => {
   next();
 };
 
+const validObjectBodyCart = (req, res, next) => {
+  const cart = req.body;
 
+  cart.forEach((item) => {
+    if (!item || !item.cellId || !item.theAmount) {
+      return res
+        .status(400)
+        .send({ message: ' Envie todos os campos dos celulares!' });
+    }
+  });
+  next();
+};
 module.exports = {
   validId,
   validObjectBody,
+  validObjectBodyCart,
 };
