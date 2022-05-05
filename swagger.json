@@ -24,7 +24,7 @@
         "get": {
           "summary": "Lista de todos os celulares",
           "description": "Rota responsável por listar todos os celulares",
-          "tags": ["Celulares"],
+          "tags": ["Cells"],
           "responses": {
             "404": {
               "description": "Not Found"
