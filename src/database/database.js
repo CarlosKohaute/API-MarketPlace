@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const connectToDatabase = () => {
   mongoose
-    .connect('mongodb://localhost:27017/cells-db', {
+    .connect('mongodb+srv://kohaute:admin@api-marketplace.uksps.mongodb.net/marketplace?retryWrites=true&w=majority', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
