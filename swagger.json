@@ -20,7 +20,7 @@
       }
     ],
     "paths": {
-      "/all-cells": {
+      "/find-cells": {
         "get": {
           "summary": "Lista de todos os celulares",
           "description": "Rota responsável por listar todos os celulares",
