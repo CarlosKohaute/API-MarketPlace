@@ -15,7 +15,7 @@
         "description": "API de teste"
       },
       {
-        "url": "https://api-marketplacekohaute.onrender.com/",
+        "url": "https://api-marketplacekohaute.onrender.com/cells",
         "description": "API de produção"
       }
     ],
